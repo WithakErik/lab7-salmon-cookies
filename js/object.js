@@ -1,15 +1,23 @@
 class Cookie {
 
-    constructor(location, cookieType, stock, cost, price) {
+    constructor(location, min, max, avg) {
         this.location = location;
-        this.cookieType = cookieType;
-        this.stock = parseInt(stock);
-        this.cost = parseInt(cost);
-        this.price = parseInt(price);
-        this.profit = price - cost;
+        this.min = min;
+        this.max = max;
+        this.avg = avg;
+    }
+
+    cookieData() {
+        this.cookies = [];
+        this.cookies.push(this.location);
+        for(let i = 0; i < 15; i++) {
+            this.cookies.push(Math.floor(Math.random() * (this.max - this.min)) + this.min)
+        }
+        return this.cookies;
     }
 
     renderMe() {
-        render([this.location, this.cookieType, this.stock, this.cost, this.price, this.profit], 'body', 'body-data');
+        // console.log('should render an object', tempArray);
+        render(this.cookies, 'body', 'body-data');
     }
 }

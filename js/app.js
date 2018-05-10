@@ -1,36 +1,58 @@
 let headerArray = ['Location', 'Type', 'Stock', 'Cost', 'Price', 'Profit'];
 
-// Instantiate cookie objects
-let chocolateChip = new Cookie('PDX', 'Chocolate Chip', 100, 5, 10);
-let oatmealRaisin = new Cookie('MSP', 'Oatmeal Rasin', 80, 4, 8);
-let snickerdoodle = new Cookie('FAR', 'Snickerdoodle', 50, 7, 15);
-let salmondoodles = new Cookie('SEA', 'Salmondoodles', 1, 1, 100);
+// Build the open times array
+let times = [];
+times.push('Location');
+for(let i = 6; i < 13; i++) {
+    times.push(i + 'am');
+}
+for(let i = 1; i < 9; i++) {
+    times.push(i + 'pm');
+}
+console.log(times);
 
-let cookieArray = [chocolateChip, oatmealRaisin, snickerdoodle, salmondoodles];
+let totals = [];
+
+// Instantiate cookie objects (Location, Min, Max, Avg)
+let pike = new Cookie('1st and Pike', 23, 65, 6.7);
+let seatac = new Cookie('SeaTac Airport', 3, 24, 1.2);
+let center = new Cookie('Seattle Center', 11, 38, 3.7);
+let capitol = new Cookie('Capitol Hill', 20, 38, 2.3);
+let alki = new Cookie('Alki', 2, 16, 4.6);
+
+let cookieArray = [pike, seatac, center, capitol, alki];
+
+for(let i in cookieArray) {
+    cookieArray[i].cookieData();
+    // console.log('random cookies', cookieArray[i].cookies);
+}
 
 // Header/Footer stuff
 function header() {
-    render(headerArray, 'head', 'header');
+    render(times, 'head', 'header')
 }
 
 function footer() {
-    let footerArray = [];
-    footerArray.push('Total');
-    footerArray.push('');
-    // Stock, Cost, Profit, Price
-    let totals = [0, 0, 0, 0];
-    for(let i in cookieArray) {
-        totals[0] += cookieArray[i].stock;
-        totals[1] += cookieArray[i].cost;
-        totals[2] += cookieArray[i].profit;
-        totals[3] += cookieArray[i].price;
-    }
-    for(let i in totals) {
-        footerArray.push(totals[i]);
-    }
-    render(footerArray, 'body', 'body-total');
+    randomize();
+    console.log(totals);
+    render(totals, 'body', 'body-total');
 }
 
 // Call some functions
 header();
 update();
+
+
+
+function randomize() {
+    // Reset totals
+    totals = [];
+    totals.push('Totals');
+    for(let i = 1; i < 16; i++) {
+        totals[i] = 0;
+        for(let j in cookieArray) {
+            console.log('cookies', cookieArray[j].cookies[i], 'j', j, 'i', i);
+            totals[i] += cookieArray[j].cookies[i];
+        }
+    }
+}
