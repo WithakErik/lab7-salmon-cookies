@@ -10,6 +10,6 @@ class Cookie {
     }
 
     renderMe() {
-        render([this.location, this.cookieType, this.stock, this.cost, this.price, this.profit], 'body');
+        render([this.location, this.cookieType, this.stock, this.cost, this.price, this.profit], 'body', 'body-data');
     }
 }

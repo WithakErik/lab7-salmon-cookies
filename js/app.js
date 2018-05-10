@@ -4,7 +4,7 @@ let headerArray = ['Location', 'Type', 'Stock', 'Cost', 'Price', 'Profit'];
 let chocolateChip = new Cookie('PDX', 'Chocolate Chip', 100, 5, 10);
 let oatmealRaisin = new Cookie('MSP', 'Oatmeal Rasin', 80, 4, 8);
 let snickerdoodle = new Cookie('FAR', 'Snickerdoodle', 50, 7, 15);
-let salmondoodles = new Cookie('SEA', 'Gross', 1, 1, 100);
+let salmondoodles = new Cookie('SEA', 'Salmondoodles', 1, 1, 100);
 
 let cookieArray = [chocolateChip, oatmealRaisin, snickerdoodle, salmondoodles];
 

@@ -5,13 +5,15 @@ function render(array, tabId, rowId) {
     }
     let row = document.createElement('tr');
     row.id = rowId;
-    for(let i in array) {
+    // let temp = document.createDocumentFragment();
+    for(let i = 0; i < array.length; i++) {
+        console.log('this is i', i);
         let data = document.createElement('td');
         data.innerHTML = array[i];
         row.appendChild(data);
     }
     // It doesn't work if I don't have this!??!
-    setTimeout(() => {   
+    setTimeout(() => {
         tab.appendChild(row);
-    }, 100);
+    }, 1);
 }
